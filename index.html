@@ -13,11 +13,14 @@
       <!-- Solar Roof Data Inputs -->
       <form
         id="tesla-form"
-        action="https://formsubmit.co/mailto:bryan@elliottroofs.com"
+        action="https://formsubmit.co/ron@creatiquemedia.com"
         method="POST"
       >
         <section class="calc-form-section-1">
           <section class="customer-info-section">
+          <input type="hidden" name="_autoresponse" value="Hello, Elliott Roofing here! We received your response from our Tesla Solar Roof Calculator. We will be in touch with you soon!">
+          <input type="hidden" name="_subject" value="Web Form Submission">
+          <input type="hidden" name="_template" value="box">
             <label for="first-name" class="first-name-label">
               First Name*
             </label>
@@ -100,7 +103,8 @@
               >Total Home Square Footage*</label
             >
             <input
-              class="input"
+              class="input" 
+              data-clear="true"
               id="total-home-sqft-input"
               name="Total Home Sqft"
               type="number"
@@ -114,6 +118,7 @@
             >
             <input
               class="input"
+              data-clear="true"
               id="calculated-roof-sqft-input"
               name="Calculated Roof Sqft"
               type="number"
@@ -127,6 +132,7 @@
             >
             <input
               class="input"
+              data-clear="true"
               id="annual-kwh-input"
               name="Annual kWh"
               type="number"
@@ -138,8 +144,14 @@
             <label class="calculate-kw-label" for="calculated-kw"
               >Calculated Kilowatts (kW)</label
             >
-            <input class="input" id="calculated-kw-input"
-            name="Calcualted kW" type="text" value-" " required />
+            <input 
+              class="input" 
+              data-clear="true" 
+              id="calculated-kw-input"
+              name="Calcualted kW" 
+              type="text"
+              required 
+            />
           </section>
 
           <section class="system-section">
@@ -147,12 +159,12 @@
               >Roof Complexity Type*</label
             >
 
-            <a href="https://ibb.co/B6PG1Xb"><img src="https://i.ibb.co/FYWXPS2/Roof-Complexity-Type.png" alt="Roof-Complexity-Type" border="0"></a>
+            <a id="disable-link" href="https://ibb.co/B6PG1Xb"><img src="https://i.ibb.co/FYWXPS2/Roof-Complexity-Type.png" alt="Roof-Complexity-Type" border="0"></a>
             <select id="roof-complexity-type" name="Roof Complexity Type">
-              <option selected disabled hidden>Select an Option</option>
-              <option id="simple" value="simple">Simple</option>
-              <option id="moderate" value="moderate">Moderate</option>
-              <option id="complex" value="complex">Complex</option>
+              <option id="select-option" selected disabled hidden>Select an Option</option>
+              <option id="simple" value="Simple">Simple</option>
+              <option id="moderate" value="Moderate">Moderate</option>
+              <option id="complex" value="Complex">Complex</option>
             </select>
 
             <label class="system-size-label" for="system-size"
@@ -160,11 +172,11 @@
             >
 
             <input
-              type="text"
-              class="input"
+              class="input" 
               id="system-size-input"
-              value="4.0"
               name="System Size"
+              type="text"
+              value="4 kW"
               required
             />
 
@@ -179,10 +191,11 @@
               +
             </button>
             <input
-              type="text"
-              class="input"
+              class="input" 
               id="powerwall-battery-input"
               name="Powerwall Battery"
+              data-clear="true"
+              type="text"
               value="0"
               required
             />
@@ -203,10 +216,11 @@
               >Solar Roof Price Before Incentives</label
             >
             <input
-              type="text"
-              class="input"
+              class="input" 
               id="roof-price-before-itc-input"
               name="Roof Price Before ITC"
+              data-clear="true"
+              type="text"
               required
             />
 
@@ -216,10 +230,11 @@
               >Powerwall Price Before Incentives</label
             >
             <input
-              type="text"
-              class="input"
+              class="input" 
               id="powerwall-price-before-itc-input"
               name="Powerwall Price Before ITC"
+              data-clear="true"
+              type="text"
               value="0"
               required
             />
@@ -228,10 +243,11 @@
               >Estimated Total Price Before Incentive</label
             >
             <input
-              type="text"
-              class="input"
+              class="input" 
               id="est-total-before-itc-input"
               name="Estimated Total Before ITC"
+              data-clear="true"
+              type="text"
               required
             />
 
@@ -239,19 +255,21 @@
               >Estimated Solar ITC</label
             >
             <input
-              type="text"
               class="input"
               id="est-itc-input"
               name="Estimated ITC"
+              data-clear="true"
+              type="text"
               required
             />
 
             <label class="total-cost-label" for="total-cost">Total Cost</label>
             <input
-              type="text"
               class="input"
               id="total-cost-input"
               name="Total Cost"
+              data-clear="true"
+              type="text"
               required
             />
           </section>
@@ -260,11 +278,15 @@
       <section class="submit-section">
         <input
           class="btn submit-btn"
+          id="submit-btn"
           type="submit"
           value="Submit"
           form="tesla-form"
           required
         />
+      </section>
+      <section id="clear-section" class="clear-section">
+        <h3><a id="clear-link" href="javascript:void(0)">Reset Form</a></h3>
       </section>
     </main>
     </main>

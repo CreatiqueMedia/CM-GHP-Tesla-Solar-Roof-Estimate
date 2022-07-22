@@ -85,9 +85,17 @@ button {
   padding-right: 2rem;
   transition: 0.2s;
 }
+
 button:hover {
   background-color: #bb0b1f;
   transition: 0.2s;
+}
+
+/* Disable Roof Complexity Type Imgbb Link */
+
+#disable-link {
+  pointer-events: none;
+  cursor: default;
 }
 
 /** Individual Element Styles **/
@@ -212,6 +220,11 @@ input[type="number"] {
   margin-bottom: 5rem;
 }
 
+.clear-section {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
 .submit-btn {
   color: #ffffff;
   background-color: var(--primary);
@@ -227,6 +240,18 @@ input[type="number"] {
 
 .submit-btn:hover {
   background: #bb0b1f;
+  transition: 0.2s;
+}
+
+.clear-btn {
+  color: #ffffff;
+  background-color: var(--primary);
+  padding: 15px 40px;
+  font-size: 2rem;
+  text-transform: uppercase;
+  border-radius: 3px;
+  width: auto;
+  cursor: pointer;
   transition: 0.2s;
 }
 

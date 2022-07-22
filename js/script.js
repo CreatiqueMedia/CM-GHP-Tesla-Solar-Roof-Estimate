@@ -1,7 +1,5 @@
 // Declare letiables
 
-// Input fields
-
 const moneyFormat = new Intl.NumberFormat("en", {
   style: "currency",
   currency: "USD",
@@ -12,17 +10,19 @@ $("#disable-link").click(function (e) {
   e.preventDefault();
 });
 
+// Enabled input fields
+
 let totalHomeSqftInput = $("#total-home-sqft-input");
-let calcRoofSqftInput = $("#calculated-roof-sqft-input").prop("disabled", true);
 let annualKwInput = $("#annual-kwh-input");
+let roofCompInput = $("#roof-complexity-type");
+
+// Disabled input fields
+
+let calcRoofSqftInput = $("#calculated-roof-sqft-input").prop("disabled", true);
 let calcKwInput = $("#calculated-kw-input").prop("disabled", true);
 let systemSizeInput = $("#system-size-input").prop("disabled", true);
-let roofCompInput = $("#roof-complexity-type");
 let pwrWallBattInput = $("#powerwall-battery-input").prop("disabled", true);
 let totalCostInput = $("#total-cost-input").prop("disabled", true);
-
-// ITC fields
-
 let roofPriceBeforeItc = $("#roof-price-before-itc-input").prop(
   "disabled",
   true
@@ -38,6 +38,8 @@ let pwrWallPriceBeforeItc = $("#powerwall-price-before-itc-input").prop(
 
 let pwrWallBattPlusBtn = $("#powerwall-battery-plus-btn");
 let pwrWallBattMinusBtn = $("#powerwall-battery-minus-btn");
+
+let clearLink = $("#clear-link");
 
 /**** Calc Form Section 1 Calculations ****/
 
@@ -730,4 +732,24 @@ pwrWallBattMinusBtn.click(function () {
       )
     );
   }
+});
+
+// Enable input fields for FormSubmit on submit button click event
+
+$("#submit-btn").on("click", function (e) {
+  $("#tesla-form input[data-clear='true']").each(function (i) {
+    $(this).prop("disabled", false);
+  });
+});
+
+// Clear fields button
+
+$("#clear-link").on("click", function (e) {
+  $("#tesla-form input[data-clear='true']").each(function (i) {
+    $(this).val("");
+    let selectOption = $("#select-option").val();
+    $("#roof-complexity-type").val(selectOption);
+    pwrWallBattInput.val(0);
+    systemSizeInput.val(4 + " kW");
+  });
 });
