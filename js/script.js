@@ -1,4 +1,4 @@
-// Declare letiables
+// Declare Variables
 
 const moneyFormat = new Intl.NumberFormat("en", {
   style: "currency",
