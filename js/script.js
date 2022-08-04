@@ -536,6 +536,7 @@ $(document).ready(function () {
           )
         );
       }
+      $(this).prop("disabled", true);
     } else if (roofCompInput.prop("selectedIndex") == 2) {
       roofPriceBeforeItc.val(
         moneyFormat.format(
@@ -558,6 +559,7 @@ $(document).ready(function () {
           )
         );
       }
+      $(this).prop("disabled", true);
     } else if (roofCompInput.prop("selectedIndex") == 3) {
       roofPriceBeforeItc.val(
         moneyFormat.format(
@@ -565,24 +567,29 @@ $(document).ready(function () {
             2000 * +systemSizeInput.val().replace(" kW", "")
         )
       );
-    }
-    if (roofPriceBeforeItc.val() !== 0 && pwrWallPriceBeforeItc.val() == 0) {
-      pwrWallPriceBeforeItc.val(moneyFormat.format(0));
-      estTotalBeforeItc.val(roofPriceBeforeItc.val());
-      estItc.val(
-        moneyFormat.format(
-          +estTotalBeforeItc.val().replace(/[^\d\.]/g, "") * 0.26
-        )
-      );
-      totalCostInput.val(
-        moneyFormat.format(
-          +estTotalBeforeItc.val().replace(/[^\d\.]/g, "") -
-            +estItc.val().replace(/[^\d\.]/g, "")
-        )
-      );
+      if (roofPriceBeforeItc.val() !== 0 && pwrWallPriceBeforeItc.val() == 0) {
+        pwrWallPriceBeforeItc.val(moneyFormat.format(0));
+        estTotalBeforeItc.val(roofPriceBeforeItc.val());
+        estItc.val(
+          moneyFormat.format(
+            +estTotalBeforeItc.val().replace(/[^\d\.]/g, "") * 0.26
+          )
+        );
+        totalCostInput.val(
+          moneyFormat.format(
+            +estTotalBeforeItc.val().replace(/[^\d\.]/g, "") -
+              +estItc.val().replace(/[^\d\.]/g, "")
+          )
+        );
+      }
+      $(this).prop("disabled", true);
     }
   });
 });
+
+/****** BEGIN TESTING ******/
+
+/****** END TESTING ******/
 
 /* PowerWall Battery Section - Optional */
 
@@ -749,6 +756,7 @@ $("#clear-link").on("click", function (e) {
     $(this).val("");
     let selectOption = $("#select-option").val();
     $("#roof-complexity-type").val(selectOption);
+    $("#roof-complexity-type").prop("disabled", false);
     pwrWallBattInput.val(0);
     systemSizeInput.val(4 + " kW");
   });
