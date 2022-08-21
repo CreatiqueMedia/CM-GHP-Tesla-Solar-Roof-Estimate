@@ -536,7 +536,7 @@ $(document).ready(function () {
           )
         );
       }
-      "#roof-complexity-type option:selected".attr("disabled", "disabled");
+      $(this).prop("disabled", true);
     } else if (roofCompInput.prop("selectedIndex") == 2) {
       roofPriceBeforeItc.val(
         moneyFormat.format(
@@ -559,7 +559,7 @@ $(document).ready(function () {
           )
         );
       }
-      "#roof-complexity-type option:selected".attr("disabled", "disabled");
+      $(this).prop("disabled", true);
     } else if (roofCompInput.prop("selectedIndex") == 3) {
       roofPriceBeforeItc.val(
         moneyFormat.format(
@@ -582,8 +582,8 @@ $(document).ready(function () {
           )
         );
       }
-      "#roof-complexity-type option:selected".attr("disabled", "disabled");
     }
+    $(this).prop("disabled", true);
   });
 });
 
@@ -746,8 +746,9 @@ pwrWallBattMinusBtn.click(function () {
 $("#submit-btn").on("click", function (e) {
   $("#tesla-form input[data-clear='true']").each(function (i) {
     $(this).prop("disabled", false);
-    $("#roof-complexity-type option:selected").attr("enabled", "enabled");
-    //$("#selectid option[value='Simple']").removeAttr('disabled');
+  });
+  roofCompInput.change(function () {
+    $(this).children("option:selected").prop("disabled", false);
   });
 });
 
